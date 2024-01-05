@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 // Imports of RXJS
-import { Observable, of } from 'rxjs';
+import { Observable, fromEvent, of } from 'rxjs';
 import { Product } from '../types/product.type';
 import { PRODUCT_LIST } from '../mocks/products.mock';
 
@@ -17,5 +17,9 @@ export class ShoppingService {
 
   getAllProducts(): Observable<Product[]> {
     return of(PRODUCT_LIST);
+  }
+
+  getClicks(): Observable<Event> {
+    return fromEvent(document, 'click');
   }
 }
